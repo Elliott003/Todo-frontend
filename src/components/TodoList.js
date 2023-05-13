@@ -64,7 +64,7 @@ export default function TodoList({ lists, setLists }) {
 	}
 
 	return (
-		<List sx={{ maxHeight: 300, borderRadius: '4px', width: '100%', maxWidth: 400, bgcolor: 'background.paper', opacity: 0.9, overflowY: "scroll" }}>
+		<List sx={{ maxHeight: 300, borderRadius: '4px', width: '100%', maxWidth: 360, bgcolor: 'background.paper', opacity: 0.9, overflowY: "scroll" }}>
 			{sortedTodos.map((item) => {
 				const labelId = `${item._id}`;
 				return (
