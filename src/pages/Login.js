@@ -5,7 +5,6 @@ import {
 	Typography,
 	TextField,
 	Button,
-	Link,
 } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +17,7 @@ const Login = () => {
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
-		const response = await axios.post('http://localhost:4000/api/user', { username, password });
+		const response = await axios.post(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/user`, { username, password });
 		console.log(response);
 		if (response.status === 200) {
 			// 登录成功，处理响应数据（例如，保存令牌、设置状态等）
@@ -65,9 +64,6 @@ const Login = () => {
 					<Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
 						Sign In
 					</Button>
-					<Link href="#" variant="body2">
-						{"Forgot password?"}
-					</Link>
 				</Box>
 			</Box>
 		</Container>

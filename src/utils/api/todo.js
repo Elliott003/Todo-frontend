@@ -27,7 +27,7 @@ export const getTasks = async (dummyData = false) => {
 		];
 	}
 
-	const result = await axios.get('http://localhost:4000/api/todos').then(response => {
+	const result = await axios.get(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/todos`).then(response => {
 		return response.data;
 	}).catch(err => {
 		console.log(err)
@@ -36,7 +36,7 @@ export const getTasks = async (dummyData = false) => {
 }
 
 export const addTask = async (task) => {
-	await axios.post('http://localhost:4000/api/todos', task).then(
+	await axios.post(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/todos`, task).then(
 		response => {
 			return response.data;
 		}
@@ -44,7 +44,7 @@ export const addTask = async (task) => {
 }
 
 export const updateTask = async (task, id) => {
-	await axios.put(`http://localhost:4000/api/todos/${id}`, task).then(
+	await axios.put(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/todos/${id}`, task).then(
 		response => {
 			console.log(`http://localhost:4000/api/todos/${id}`)
 			console.log(task)
@@ -54,7 +54,7 @@ export const updateTask = async (task, id) => {
 }
 
 export const deleteTask = async (id) => {
-	await axios.delete(`http://localhost:4000/api/todos/${id}`).then(
+	await axios.delete(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/todos/${id}`).then(
 		respose => {
 			return respose.data;
 		}
