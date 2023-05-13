@@ -17,7 +17,7 @@ const Login = () => {
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
-		const response = await axios.post(`http://${process.env.REACT_APP_BACKEND_IP}:4000/api/user`, { username, password });
+		const response = await axios.post(`/api/user`, { username, password });
 		console.log(response);
 		if (response.status === 200) {
 			// 登录成功，处理响应数据（例如，保存令牌、设置状态等）
